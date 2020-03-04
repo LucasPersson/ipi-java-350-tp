@@ -43,12 +43,17 @@ public class Employe {
         this.tempsPartiel = tempsPartiel;
     }
 
+    /**
+     * on calcul le nombre d'année
+     * @return le nb d'années dancienneté
+     */
     public Integer getNombreAnneeAnciennete() {
-        LocalDate a = LocalDate.now();
+        //LocalDate a = LocalDate.now();
+        if (this.dateEmbauche != null && this.dateEmbauche.isBefore(LocalDate.now())) {
+            return LocalDate.now().getYear() - this.dateEmbauche.getYear();
+        }
 
-        int c = a.getYear() - dateEmbauche.getYear();
-
-        return c;
+        return 0;
     }
 
     public Integer getNbConges() {
