@@ -1,1 +1,9 @@
 language: java
+addons:
+  sonarcloud:
+    organization: lucper
+    #token:
+    #  359d0763c8c5c5729a3bd6e5554f5bed0d0ffbe6
+script:
+  # the following command line builds the project, runs the tests with coverage and then execute the SonarCloud analysis
+  - mvn clean verify sonar:sonar -Pcoverage -Dsonar.projectKey=ipi-java-350-tp
